@@ -20,16 +20,12 @@ struct Studentas {
 	double vidurkis;
 
 	double galutinis(int egzaminas, int NdSkaicius, vector<double> ND[]) {
-		double *ndPazymiai[10];
-		double *ndSuma=0;
+		double ndSuma=0;
 		double vidurkis;
 		for (int i = 0; i < NdSkaicius; i++) {
-			ndPazymiai[i] = ND[i].data();
+			ndSuma =ndSuma+ND->at(i);
 		}
-		for (int i = 0; i < NdSkaicius; i++) {
-			ndSuma = +ndPazymiai[i];
-		}
-		vidurkis = (egzaminas * 0.6) + (*ndSuma * 0.4);
+		vidurkis = (egzaminas * 0.6) + (ndSuma * 0.4);
 		return vidurkis;
 	};
 
@@ -151,19 +147,19 @@ int main() {
 			}
 		}
 		cout << "Ar norite ivesti namu darbu rezultatus? Jei nenorite, iveskite 'N', ir jums rezultatai bus automatiskai sugeneruojami. (Iveskite tik 'T' arba 'N')" << endl;
-		
+
 		sutikimas = inputChar();
 
 		if (sutikimas == 'n' || sutikimas == 'N') {
 			for (int i = 0; i < studentas[studentuSkaicius].NdSkaicius; i++) {
 				studentas[studentuSkaicius].ND.at(i) = (1 + rand() % 10);
 				cout << studentas[studentuSkaicius].ND[i] << " ";
-				
+
 			}
 			cout << endl;
 
 		}
-			
+
 		else {
 			for (int i = 0; i < studentas[studentuSkaicius].NdSkaicius; i++) {
 				cout << i + 1 << " pazymys: ";
@@ -203,7 +199,7 @@ int main() {
 		}
 	} while (sutikimas != 'M' && sutikimas != 'V' && sutikimas != 'm' && sutikimas != 'v');
 	if (sutikimas == 'V' || sutikimas == 'v') {
-		cout << left << setw(15) << "Vardas" << "Pavarde" << right << setw(50) << "galutinis (vid.)" << endl;
+		cout << left << setw(15) << "Vardas" << "Pavarde" << right << setw(35) << "galutinis (vid.)" << endl;
 		for (int i = 0; i < studentuSkaicius; i++) {
 			cout << "------------------------------------------------------------------------------------------" << endl;
 			cout << left << setw(15) << studentas[i].vardas << studentas[i].pavarde;
