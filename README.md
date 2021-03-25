@@ -16,3 +16,13 @@
     Atliekant šią užduotį galite sukurti du atskirus (*.cpp) failus (arba du projektus), tačiau nuo versijos v0.2 naudosime tik realizaciją su vector'iais.
 
     Papildykite programą taip, kad būtų galimybė, jog mokinio gautieji balai už namų darbus bei egzaminą būtų generuojami atsitiktinai.
+    Patobulinkite (jeigu reikia pagal v0.1 paskutinę užduotį turimą realizaciją) ir sugeneruokite penkis atsitiktinius studentų sąrašų failus, sudarytus iš: 1000, 10000, 100000, 1000000, 10000000 įrašų. Vardus ir Pavardes galite generuoti "šabloninius", kaip pvz. Vardas1 Pavarde1, Vardas2 Pavarde2 ir t.t.
+    Sūrušiuokite (padalinkite) studentus į dvi kategorijas:
+        Studentai, kurių galutinis balas < 5.0 galėtume vadinti “vargšiukai”, “nuskriaustukai” ir pan.
+        Studentai, kurių galutinis balas >= 5.0 galėtume vadinti "kietiakiai", "galvočiai" ir pan.
+    Surūšiuotus studentus išveskite į du naujus failus.
+    Atlikite programos veikimo greičio (spartos) analizę: t.y. išmatuokite programos spartą išskiriant kiek laiko užtruko kiekvienas iš žemiau išvardintų žingsnių:
+        failų kūrimą;
+        duomenų nuskaitymą iš failų;
+        studentų rūšiąvimą į dvi grupes/kategorijas;
+        surūšiuotų studentų išvedimą į du naujus failus.
