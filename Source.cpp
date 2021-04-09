@@ -1,6 +1,6 @@
 #include "Funkcijos.h"
 #include <chrono>
-
+#pragma GCC optimize("Ofast")
 using namespace std;
 
 int main() {
@@ -19,8 +19,8 @@ int main() {
     for (int i=1000; i<10000000; i=i*10){
     string studentuSkaiciusPaduodamasFailui = to_string(i);
     cout << "generuojamas failas su" << " " << studentuSkaiciusPaduodamasFailui << " studentu." << endl;
-        generateFiles(*studentas, i);
-        workWithGeneratedFile(*studentas, i);
+        generateFiles(i);
+        workWithGeneratedFile(i);
         cout << "failas uzdaromas, tesiama su 10 kartu didesniu failu." << endl;
     }
     }

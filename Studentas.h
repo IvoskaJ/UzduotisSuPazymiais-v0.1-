@@ -25,6 +25,7 @@ struct Studentas {
 		return vidurkis;
 	};
 
+
 	double mediana(int egzaminas, int NdSkaicius, vector<double> ND[]) {
 		double median = 0;
 		ND->resize(NdSkaicius + 1);
@@ -57,4 +58,6 @@ struct Studentas {
 
 		return median;
 	}
+
+
 };
