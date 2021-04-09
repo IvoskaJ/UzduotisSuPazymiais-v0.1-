@@ -267,10 +267,9 @@ void rankinisGeneravimas(vector<Studentas> studentas, int studentuSkaicius, char
 	}
 	cout << "jusu rezultatai yra isvesti i textini faila 'rezultatai' " << endl;
 }
-void generateFiles(vector<Studentas> &studentas, int studentuSkaicius){
+void generateFiles(int studentuSkaicius){
     auto start = high_resolution_clock::now();
     ofstream fr;
-    studentas.resize(studentuSkaicius);
     string studentuKiekisFaile = to_string(studentuSkaicius);
     string file = studentuKiekisFaile + ".txt";
     fr.open(file);
@@ -280,31 +279,24 @@ void generateFiles(vector<Studentas> &studentas, int studentuSkaicius){
     }
     fr << setw(10) << right <<  "Egz." << endl;
     for(int i=0; i<studentuSkaicius; i++){
-    studentas.resize(studentuSkaicius);
     string indeksas = to_string(i+1);
-    studentas.at(i).vardas = "Vardas" + indeksas;
-    studentas.at(i).pavarde = "Pavarde" +indeksas;
-    fr << setw(15) <<  left << studentas.at(i).vardas << setw(15) << left << studentas.at(i).pavarde;
+    fr << setw(15) <<  left << "Vardas" + indeksas << setw(15) << left << "Pavarde" + indeksas;
     for (int j=0; j<10; j++){
-		studentas.at(i).ND.resize(studentuSkaicius);
-        studentas.at(i).ND.at(j) = 1+rand()%10;
-        fr << setw(10) << right << studentas.at(i).ND.at(j);
+
+        fr << setw(10) << right << 1 + rand() % 10;
     }
-    studentas.at(i).ND.resize(0);
-    studentas.at(i).ND.clear();
-    studentas.at(i).egzaminas = 1+rand()%10;
-    fr << setw(10) << right << studentas.at(i).egzaminas << endl;
-    studentas.clear();
+    fr << setw(10) << right << 1 + rand() % 10 << endl;
     }
     fr.close();
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start)*1.0/1000000;
     cout << "failo generavimas uztruko: " << duration.count() << endl;
 }
-void workWithGeneratedFile(vector<Studentas> &studentas, int studentuSkaicius){
+void workWithGeneratedFile(int studentuSkaicius){
 
-    vector<Studentas> *dundukas = new vector<Studentas>;
-	vector<Studentas> *malacius = new vector<Studentas>;
+    vector<Studentas> studentas;
+    vector<Studentas> dundukas;
+	vector<Studentas> malacius;
     string file;
     string studentuSkaiciusFaile = to_string(studentuSkaicius);
     ifstream fd(studentuSkaiciusFaile + ".txt");
@@ -316,12 +308,15 @@ void workWithGeneratedFile(vector<Studentas> &studentas, int studentuSkaicius){
     studentas.resize(studentuSkaicius);
     for(int i=0; i<studentuSkaicius; i++){
         fd >> studentas.at(i).vardas >> studentas.at(i).pavarde;
+
         for (int j = 0; j<10; j++){
-            studentas.at(i).ND.resize(studentuSkaicius);
-            fd >> studentas.at(i).ND.at(j);
+            int temp;
+            fd >> temp;
+            studentas.at(i).ND.push_back(temp);
         }
         fd >> studentas.at(i).egzaminas;
     }
+
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start)*1.0/1000000;
 
@@ -330,26 +325,20 @@ void workWithGeneratedFile(vector<Studentas> &studentas, int studentuSkaicius){
     fd.close();
     int malaciuSkaicius=0;
     int dundukuSkaicius=0;
-
     start = high_resolution_clock::now();
-
-    for (int i=0; i<studentuSkaicius; i++){
+    for (int i=0; i<studentas.size(); i++){
             if(studentas.at(i).galutinis(studentas.at(i).egzaminas,10, &studentas.at(i).ND)>=5){
-            malacius->resize(studentas.size());
-            malacius->at(malaciuSkaicius)=studentas.at(i);
-            malacius->shrink_to_fit();
+            malacius.push_back(studentas.at(i));
             malaciuSkaicius++;
+            studentas.erase(studentas.begin()+i);
             }
             else {
-                dundukas->resize(studentas.size());
-                dundukas->at(dundukuSkaicius)=studentas.at(i);
-                dundukas->shrink_to_fit();
+                dundukas.push_back(studentas.at(i));
                 dundukuSkaicius++;
+                studentas.erase(studentas.begin()+i);
             }
     }
     studentas.clear();
-    studentas.resize(0);
-
 
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start)*1.0/1000000;
@@ -359,17 +348,17 @@ void workWithGeneratedFile(vector<Studentas> &studentas, int studentuSkaicius){
     start = high_resolution_clock::now();
 
     file = studentuSkaiciusFaile + "dundukai.txt";
-    visuDuomenuSkaiciavimas(*dundukas, dundukuSkaicius, file);
+    visuDuomenuSkaiciavimas(dundukas, dundukuSkaicius, file);
 
-	dundukas->clear();
-	dundukas->resize(0);
+	dundukas.clear();
+	dundukas.resize(0);
 
    file = studentuSkaiciusFaile + "malaciai.txt";
 
-    visuDuomenuSkaiciavimas(*malacius, malaciuSkaicius, file);
+    visuDuomenuSkaiciavimas(malacius, malaciuSkaicius, file);
 
-	malacius->clear();
-	malacius->resize(0);
+	malacius.clear();
+	malacius.resize(0);
 
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start)*1.0/1000000;
