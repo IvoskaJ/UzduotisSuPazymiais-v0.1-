@@ -1,18 +1,27 @@
-# UzduotisSuPazymiais-v0.1-
+# UzduotisSuPazymiais-v0.5-
 
-    Pagal aprašytus užduoties reikalavimus realizuokite programą, kuri nuskaito vartotojų įvedamus reikiamus duomenis:
-        studento vardą ir pavardę;
-        namų darbų ir egzamino rezultatą;
-    Baigus duomenų įvedimą, suskaičiuoja galutinį balą ir juos pateikia į ekraną tokiu ar panašiu pavidalu (kur galutinis apskaičiuotas balas pateikiamas dviejų skaičių po kablelio tikslumu):
+    Konteinerių testavimas: Išmatuokite patobulintos v0.4 realizacijos veikimo spartą priklausomai nuo naudojamo vieno iš trijų konteinerių:
+        std::vector
+        std::list
+        std::deque
 
+    T.y., jeigu Jūs turite susikurę struktūrą Studentai (ar kaip jūs ją pavadinote) ir iki v0.4 naudojote std::vector<Studentai>, tai turite ištirti: ar pasikeistų ir kaip pasikeistų programos sparta, jei vietoje std::vector<Studentai> naudotumėte std::list<Studentai> ir std::deque<Studentai>.
 
-    Papildykite programą, kad vietoj vidurkio galutinio balo skaičiavimui būtų galima naudoti ir medianą. Tuomet išvedimas (output’as) turėtų atrodyti panašiai į šį, kur tik vienas pasirinktas Galutinis (Vid.) arba Galutinis (Med.) yra išvedamas:
+Labai svarbu, kadangi tiek failų kūrimas, tiek ir surūšiuotų rezultatų išvedimas į failus nepriklauso nuo naudojamo konteinerio, todėl šioje užduotyje reiktų matuoti tik šiuos programoje atliekamus žingsnius:
 
+    duomenų nuskaitymą iš failų;
+    studentų rūšiąvimą į dvi grupes/kategorijas;
+    
+Vector greitis: ![vector greitis](https://user-images.githubusercontent.com/78845735/115778686-b70b8a80-a3bf-11eb-96a0-b0395d09792e.png)
 
-    Papildykite programą taip, kad ji veiktų ir tokiu atveju, kai namų darbų skaičius (n) yra nežinomas iš anksto, t.y. tik įvedimo metu vartotojas nusprendžia kuomet jis jau įvedė visų namų darbų rezultatus. Šią dalį realizuoti reiktų dviem būdais, kur namų darbų rezultatus saugant į:
-        C  masyvą.
-        std::vector  tipo konteinerį.
+Deque greitis: ![deque greitis](https://user-images.githubusercontent.com/78845735/115778702-bf63c580-a3bf-11eb-8491-a01bf8272d7a.png)
 
-    Atliekant šią užduotį galite sukurti du atskirus (*.cpp) failus (arba du projektus), tačiau nuo versijos v0.2 naudosime tik realizaciją su vector'iais.
+List greitis: ![list greitis](https://user-images.githubusercontent.com/78845735/115778728-c5f23d00-a3bf-11eb-8691-5dfedbc15a36.png)
 
-    Papildykite programą taip, kad būtų galimybė, jog mokinio gautieji balai už namų darbus bei egzaminą būtų generuojami atsitiktinai.
+CPU: ![cpu](https://user-images.githubusercontent.com/78845735/115778991-11a4e680-a3c0-11eb-9ed7-0f06b6a75f7c.png)
+
+SSD: ![ssd](https://user-images.githubusercontent.com/78845735/115779011-17023100-a3c0-11eb-853f-92859ca3caab.png)
+
+RAM: ![memory](https://user-images.githubusercontent.com/78845735/115779022-1bc6e500-a3c0-11eb-9d1a-6d962ec24579.png)
+
+GPU: ![gpu](https://user-images.githubusercontent.com/78845735/115779038-21242f80-a3c0-11eb-80e1-929a6dcf3ca3.png)
