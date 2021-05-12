@@ -33,21 +33,30 @@ Reikalavimai versijai (v1.0)
         
         Tyrimu rezultatai:
         Deque:
-        1 strat:![deque1](https://user-images.githubusercontent.com/78845735/117927486-f19f7d80-b302-11eb-8072-bcd00deaf2dc.png)
-        2 strat:![deque2](https://user-images.githubusercontent.com/78845735/117927617-1bf13b00-b303-11eb-816c-acdb38db5619.png)
+        1 strat:
+   ![deque1](https://user-images.githubusercontent.com/78845735/117927486-f19f7d80-b302-11eb-8072-bcd00deaf2dc.png)
+   
+        2 strat:
+   ![deque2](https://user-images.githubusercontent.com/78845735/117927617-1bf13b00-b303-11eb-816c-acdb38db5619.png)
         
         1 strategija deque'ui daug greitesnė. Kadangi 2 strategija labai lėtai veikia, screenshot'ai kuriuose būtų dirbama su 100000, 1000000, ir 100000 dydžio failais nekeliami.
 
         
         Vector:
-        1 strat:![vector1](https://user-images.githubusercontent.com/78845735/117928205-e436c300-b303-11eb-9abe-6bd22e079000.png)
-        2 strat:![vector2](https://user-images.githubusercontent.com/78845735/117928239-ef89ee80-b303-11eb-89bb-3df77cf5caef.png)
+        1 strat:
+   ![vector1](https://user-images.githubusercontent.com/78845735/117928205-e436c300-b303-11eb-9abe-6bd22e079000.png)
+        
+        2 strat:
+   ![vector2](https://user-images.githubusercontent.com/78845735/117928239-ef89ee80-b303-11eb-89bb-3df77cf5caef.png)
         
         1 strategija vektoriui gavosi žymiai greitesnė nei 2. Vėl gi, dėl veikimo greičio 2 strategijai nekeliami didelių failų screenshot'ai.
         
         List:
-        1 strat:![list1](https://user-images.githubusercontent.com/78845735/117928561-6921dc80-b304-11eb-9570-1f34d891b12b.png)
-        2 strat:![list2](https://user-images.githubusercontent.com/78845735/117928589-7343db00-b304-11eb-939c-7f3f515201fe.png)
+        1 strat:
+   ![list1](https://user-images.githubusercontent.com/78845735/117928561-6921dc80-b304-11eb-9570-1f34d891b12b.png)
+   
+        2 strat:
+   ![list2](https://user-images.githubusercontent.com/78845735/117928589-7343db00-b304-11eb-939c-7f3f515201fe.png)
         
         2 strategija list'ui gavosi šiek tiek greitesnė.
 
